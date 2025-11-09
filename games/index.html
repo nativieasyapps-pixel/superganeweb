@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Games — SupergameWeb</title>
+  <meta name="description" content="Browse free HTML5 games. Tap to play instantly on mobile and desktop.">
+  <meta name="theme-color" content="#0a0a0a">
+  <style>
+    :root{--bg:#0a0a0a;--panel:#0e0e0e;--line:#1a1a1a;--text:#eaeaea;--muted:#b9b9c0;--snes-yellow:#f5d742}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .wrap{max-width:1100px;margin:auto;padding:20px}
+    header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(10,10,10,.95)}
+    a{color:#cfcfd8;text-decoration:none}
+    .title{font-size:1.6rem;font-weight:800}
+    .ad-slot{min-height:90px;text-align:center;color:#8a8a8a;border:1px dashed #2a2a2a;border-radius:12px;padding:12px;margin:20px auto}
+    .coming{margin:24px 0;color:var(--muted)}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:16px}
+    .btn{display:inline-block;background:var(--snes-yellow);color:#000;font-weight:800;padding:10px 16px;border-radius:999px;margin-top:10px}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="title">Games</div>
+    <nav><a href="/">Home</a></nav>
+  </header>
+
+  <!-- Reserved ad space for future use -->
+  <div id="ad-games" class="ad-slot">Advertisement space</div>
+
+  <main class="wrap">
+    <p class="coming">We’re starting simple. The first game link will appear here soon.</p>
+    <section class="card">
+      <div><strong>Got a game link?</strong></div>
+      <div>Send it to us and we'll add it here—optimized for mobile and fast loading.</div>
+      <a class="btn" href="/">Back to Home</a>
+    </section>
+  </main>
+</body>
+</html>

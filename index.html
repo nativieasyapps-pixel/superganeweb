@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SupergameWeb — Free HTML5 Games, No Downloads</title>
+  <meta name="description" content="Play free HTML5 games instantly on mobile and desktop — no downloads. Lightweight, fast, and fun.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="SupergameWeb — Free HTML5 Games, No Downloads">
+  <meta property="og:description" content="Play free HTML5 games instantly on mobile and desktop — no downloads.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/img/og-cover.png">
+  <link rel="icon" href="/img/favicon.png">
+  <style>
+    :root{
+      --bg:#0a0a0a;      /* matte black */
+      --panel:#0e0e0e;
+      --line:#1a1a1a;
+      --text:#eaeaea;
+      --muted:#b9b9c0;
+      --snes-blue:#7eb3ff; --snes-red:#ff6961; --snes-green:#7ef0a5; --snes-yellow:#f5d742;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    header{
+      position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+      background:rgba(10,10,10,.95);backdrop-filter:saturate(180%) blur(4px);
+      border-bottom:1px solid var(--line);padding:10px 16px
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#d8d8d8;text-decoration:none}
+    .brand::before{content:'🎮'}
+    nav a{color:#cfcfd8;text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid transparent}
+    nav a:hover{border-color:#313131;color:#fff;background:#101010}
+    .wrap{max-width:var(--maxw);margin:auto;padding:20px}
+    .hero{text-align:center;padding:64px 20px}
+    .hero h1{margin:0 0 10px 0;font-size:2rem;color:#ffffff}
+    .hero p{margin:0;color:var(--muted)}
+    .cta{margin-top:20px;display:inline-block;background:var(--snes-blue);color:#000;
+      padding:12px 28px;border-radius:999px;font-weight:800;text-decoration:none;box-shadow:0 6px 16px rgba(126,179,255,.15)}
+    .cta:hover{background:var(--snes-green)}
+    .chip-row{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+    .chip{width:10px;height:10px;border-radius:50%}
+    .b{background:var(--snes-blue)} .r{background:var(--snes-red)} .g{background:var(--snes-green)} .y{background:var(--snes-yellow)}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px}
+    .ad-slot{min-height:90px;text-align:center;color:#8a8a8a;border:1px dashed #2a2a2a;border-radius:12px;padding:12px;margin:20px auto}
+    footer{border-top:1px solid var(--line);text-align:center;color:#9a9aa3;padding:18px;margin-top:40px;font-size:.95rem}
+    /* consent bar - matte black */
+    .consent-bar{
+      position:fixed;left:0;right:0;bottom:0;z-index:9999;
+      background:#0b0b0b;border-top:1px solid #1a1a1a;color:#e6e6e6;
+      display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;
+      padding:12px 16px;font-size:.95rem
+    }
+    .consent-bar button{
+      background:#141414;border:1px solid #262626;color:#f3f3f3;border-radius:999px;
+      padding:8px 14px;cursor:pointer
+    }
+    .consent-accept{background:var(--snes-green);border:0;color:#000;font-weight:800}
+    .hidden{display:none}
+    @media (max-width:600px){.hero{padding:48px 16px}.hero h1{font-size:1.6rem}}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/">SupergameWeb</a>
+    <nav aria-label="primary">
+      <a href="/games/">Games</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero panel">
+      <h1>Free HTML5 Games — No Downloads</h1>
+      <p>Play instantly on your phone or desktop. Lightweight, fast, and fun.</p>
+      <a class="cta" href="/games/">Play now</a>
+      <div class="chip-row" aria-hidden="true">
+        <div class="chip b"></div><div class="chip r"></div><div class="chip g"></div><div class="chip y"></div>
+      </div>
+    </section>
+
+    <!-- Moneytizer ad (homepage) -->
+    <div id="25277-28">
+  <script src="//ads.themoneytizer.com/s/gen.js?type=28"></script>
+  <script src="//ads.themoneytizer.com/s/requestform.js?siteId=25277&formatId=28"></script>
+</div>
+
+  </main>
+
+  <footer>
+    © 2025 SupergameWeb • Made for players in the United States and worldwide.
+  </footer>
+
+  <!-- Matte-black visual consent bar -->
+  <div id="consentbar" class="consent-bar">
+    <span>This site uses cookies to deliver ads and improve your experience.</span>
+    <button id="btn-manage" type="button">Manage choices</button>
+    <button id="btn-accept" class="consent-accept" type="button">Accept</button>
+  </div>
+
+  <script>
+    (function() {
+      function setCookie(name, value, days) {
+        var d = new Date();
+        d.setTime(d.getTime() + (days*24*60*60*1000));
+        document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/;SameSite=Lax";
+      }
+      function getCookie(name) {
+        var n = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i<ca.length;i++){var c=ca[i].trim(); if(c.indexOf(n)==0) return c.substring(n.length,c.length);}
+        return "";
+      }
+      var bar = document.getElementById('consentbar');
+      var accepted = getCookie('sgw_consent');
+      if(accepted === 'yes') { bar.classList.add('hidden'); }
+      document.getElementById('btn-accept').addEventListener('click', function() {
+        setCookie('sgw_consent', 'yes', 365);
+        bar.classList.add('hidden');
+      });
+      document.getElementById('btn-manage').addEventListener('click', function() {
+        if(window.__tcfapi) { window.__tcfapi('displayUi', 2, function(){}); }
+      });
+    })();
+  </script>
+
+  <!-- InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2) -->
+<script type="text/javascript" async=true>
+(function() {
+  var host = "www.themoneytizer.com";
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://cmp.inmobi.com'
+    .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js?tag_version=V3');
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
+    }
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        if(args[0] === 'init' && typeof args[3] === 'object') {
+          args[3] = Object.assign(args[3], { tag_version: 'V3' });
+        }
+        queue.push(args);
+      }
+    }
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  };
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+})();
+</script>
+<!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2) -->
+</body>
+</html>
