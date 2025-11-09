@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><title>Runner Pixel</title>
+<style>body{margin:0;background:#000;color:#fff;font:16px/1.5 system-ui}canvas{display:block;margin:auto;background:#111}</style>
+<canvas id="c" width="640" height="360"></canvas>
+<script>
+const c = document.getElementById('c'), x = c.getContext('2d');
+let t=0, y=200, vy=0, on=true, score=0;
+function loop(){
+  t++; vy+=0.6; y+=vy; if(y>300){y=300; vy=0;}
+  x.clearRect(0,0,c.width,c.height);
+  // ground
+  x.fillStyle='#0f0'; x.fillRect(0,320,640,40);
+  // player
+  x.fillStyle='#7cf'; x.fillRect(80, y-16, 16,16);
+  // obstacle
+  const ox = 640 - (t*4)%720;
+  x.fillStyle='#f55'; x.fillRect(ox, 304, 20,16);
+  if(ox<96 && ox>64 && y>288){ on=false; }
+  x.fillStyle='#fff'; x.fillText('Puntos: '+score, 8, 20);
+  if(on){ score++; requestAnimationFrame(loop); } else {{ x.fillText('Game Over - Espacio para reiniciar', 160, 180);}}
+}
+addEventListener('keydown', e=>{{ if((e.code==='Space'||e.code==='ArrowUp') && y>=300) vy=-10; if(!on){on=true; t=0; score=0; loop();}}});
+loop();
+</script>

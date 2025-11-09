@@ -1,0 +1,67 @@
+
+:root{
+  --bg:#0a0a0a;
+  --panel:#0e0e0e;
+  --line:#1a1a1a;
+  --text:#eaeaea;
+  --muted:#b8b8b8;
+  --accent:#79d4ff;
+  --ok:#6ef3a5;
+  --warn:#ffd166;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Noto Sans', Arial, 'Apple Color Emoji','Segoe UI Emoji';
+  color:var(--text);
+  background:var(--bg);
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px; margin:0 auto; padding:24px}
+header{
+  position:sticky; top:0; z-index:10;
+  background:rgba(10,10,10,.75); backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700}
+.brand img{width:28px; height:28px}
+.search{flex:1; max-width:520px; display:flex; gap:8px}
+.search input{
+  flex:1; background:#0c0c0c; color:var(--text); border:1px solid var(--line);
+  padding:10px 12px; border-radius:999px;
+}
+.search button{
+  border:0; padding:10px 16px; border-radius:999px; background:var(--accent);
+  color:#001018; font-weight:700; cursor:pointer;
+}
+.hero{
+  border-bottom:1px solid var(--line);
+  background:radial-gradient(1200px 300px at 50% -50%, #123,#0a0a0a 60%);
+}
+.hero .wrap{padding:48px 24px 24px}
+h1{margin:0 0 8px; font-size:clamp(28px, 4vw, 44px)}
+.sub{color:var(--muted); max-width:60ch}
+.grid{
+  display:grid; gap:16px;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  padding:24px 0;
+}
+.card{
+  background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+  overflow:hidden; display:flex; flex-direction:column; min-height:240px;
+}
+.card .thumb{aspect-ratio:16/9; background:#111; display:grid; place-items:center; border-bottom:1px solid var(--line)}
+.card h3{font-size:18px; margin:12px 12px 0}
+.card p{color:var(--muted); margin:6px 12px 12px}
+.badges{display:flex; gap:8px; margin:0 12px 12px; flex-wrap:wrap}
+.badge{font-size:12px; background:#111; border:1px solid var(--line); padding:4px 8px; border-radius:999px}
+footer{border-top:1px solid var(--line); color:var(--muted)}
+.footergrid{display:grid; gap:16px; grid-template-columns:1fr auto}
+small, .legal a{color:var(--muted)}
+.skip{position:absolute; left:-10000px}
+.skip:focus{left:12px; top:12px; background:#fff; color:#000; padding:8px 12px; border-radius:8px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
